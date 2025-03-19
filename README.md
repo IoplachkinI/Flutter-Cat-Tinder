@@ -1,16 +1,26 @@
-# cat_tinder
+# Кототиндер - найди своего идеального котика!
 
-HSSE Flutter course first homework
+Проект "Кототиндер" - приложение, в котором вы можете просматривать 
+тысячи различных котиков, лайкать понравившихся и дизлайкать тех, 
+что не приглянулись, а также узнать побольше о каждом.
 
-## Getting Started
+## Фичи
 
-This project is a starting point for a Flutter application.
+- На главной странице расположены карточки с фотографиями котиков, их породой
+и происхождением
+- Свайпнув влево, можно лайкнуть котика; свайпнув вправо - поставить бедняжке
+дизлайк =( При этом увеличится соответствующий счетчик, а также поменяет
+состояние полоса распределения оценок
+- Карточки подгружаются заранее, что делает использование приложения
+более приятным
+- При нажатии на самого котика откроется экран с детальным описанием породы,
+характером, типичном для этой породы пушистых, а также средняя продолжительность
+жизни и страна происхождения
+- Нажав на стрелку в левом верхнем углу экрана, можно вернуться на 
+главный экран
 
-A few resources to get you started if this is your first Flutter project:
+## Скриншоты
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+![plot](./screenshots/img1.jpg)
+![plot](./screenshots/img2.jpg)
+![plot](./screenshots/img3.jpg) 
