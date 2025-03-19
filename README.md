@@ -22,5 +22,7 @@
 ## Скриншоты
 
 ![plot](./screenshots/img1.png)
+
 ![plot](./screenshots/img2.png)
+
 ![plot](./screenshots/img3.png) 
