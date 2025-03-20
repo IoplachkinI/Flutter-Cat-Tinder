@@ -12,10 +12,10 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Color.fromARGB(255, 30, 30, 30),
+      backgroundColor: const Color.fromARGB(255, 30, 30, 30),
       appBar: AppBar(
-        backgroundColor: Color.fromARGB(255, 30, 30, 30),
-        iconTheme: IconThemeData(color: Colors.white),
+        backgroundColor: const Color.fromARGB(255, 30, 30, 30),
+        iconTheme: const IconThemeData(color: Colors.white),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -38,20 +38,26 @@ class DetailsScreen extends StatelessWidget {
                 fit: BoxFit.cover,
               ),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 0),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 0,
+                ),
                 child: Text(
                   catInfo.breed,
                   textAlign: TextAlign.left,
-                  style: TextStyle(
+                  style: const TextStyle(
                     color: Colors.white,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              Divider(height: 1, thickness: 1, color: Colors.white),
+              const Divider(height: 1, thickness: 1, color: Colors.white),
               Container(
-                padding: EdgeInsets.symmetric(vertical: 20, horizontal: 50),
+                padding: const EdgeInsets.symmetric(
+                  vertical: 20,
+                  horizontal: 50,
+                ),
                 child: Column(
                   crossAxisAlignment: CrossAxisAlignment.start,
                   spacing: 10,

@@ -10,10 +10,6 @@ class CatApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
-    return MaterialApp(
-      title: "CatTinder",
-      // theme: ThemeData(primarySwatch: Colors.white),
-      home: const MainScreen(),
-    );
+    return const MaterialApp(title: "CatTinder", home: MainScreen());
   }
 }

@@ -107,9 +107,9 @@ class MainScreenState extends State<MainScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(backgroundColor: Color.fromARGB(255, 30, 30, 30)),
+      appBar: AppBar(backgroundColor: const Color.fromARGB(255, 30, 30, 30)),
       body: Container(
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           image: DecorationImage(
             image: AssetImage("assets/images/background.jpg"),
             opacity: 0.2,
@@ -124,7 +124,7 @@ class MainScreenState extends State<MainScreen> {
                 child: CardSwiper(
                   duration: const Duration(milliseconds: 200),
                   initialIndex: 0,
-                  backCardOffset: Offset(0, 0),
+                  backCardOffset: const Offset(0, 0),
                   cardsCount: catCount,
                   controller: controller,
                   cardBuilder:
@@ -148,14 +148,14 @@ class MainScreenState extends State<MainScreen> {
                   numberOfCardsDisplayed: catCount,
                   onSwipe: _onSwipe,
                   maxAngle: 30,
-                  allowedSwipeDirection: AllowedSwipeDirection.only(
+                  allowedSwipeDirection: const AllowedSwipeDirection.only(
                     left: true,
                     right: true,
                   ),
                   isLoop: true,
                 ),
               ),
-              Flexible(
+              const Flexible(
                 flex: 1,
                 child: SizedBox(width: double.infinity, height: 20),
               ),
@@ -179,7 +179,7 @@ class MainScreenState extends State<MainScreen> {
                   ],
                 ),
               ),
-              Flexible(
+              const Flexible(
                 flex: 1,
                 child: SizedBox(width: double.infinity, height: 50),
               ),
@@ -196,7 +196,7 @@ class MainScreenState extends State<MainScreen> {
                       (context, value, _) => LinearProgressIndicator(
                         value: value,
                         minHeight: 5,
-                        color: Color.fromARGB(255, 30, 30, 30),
+                        color: const Color.fromARGB(255, 30, 30, 30),
                         backgroundColor: Colors.red,
                       ),
                 ),

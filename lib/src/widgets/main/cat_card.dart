@@ -15,7 +15,7 @@ class CatCard extends StatelessWidget {
       height: MediaQuery.of(context).size.height * 0.5,
       child: Card(
         elevation: 4,
-        color: Color.fromARGB(255, 30, 30, 30),
+        color: const Color.fromARGB(255, 30, 30, 30),
         shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(16)),
         clipBehavior: Clip.hardEdge,
         child: Stack(
@@ -41,18 +41,21 @@ class CatCard extends StatelessWidget {
             Align(
               alignment: Alignment.bottomCenter,
               child: Container(
-                color: Color.fromARGB(220, 30, 30, 30),
+                color: const Color.fromARGB(220, 30, 30, 30),
                 height: MediaQuery.of(context).size.height * 0.095,
                 width: double.infinity,
                 child: Padding(
-                  padding: EdgeInsets.symmetric(horizontal: 24, vertical: 8),
+                  padding: const EdgeInsets.symmetric(
+                    horizontal: 24,
+                    vertical: 8,
+                  ),
                   child: Column(
                     mainAxisAlignment: MainAxisAlignment.center,
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
                         catInfo.breed,
-                        style: TextStyle(
+                        style: const TextStyle(
                           color: Colors.white,
                           fontSize: 24,
                           fontWeight: FontWeight.bold,
@@ -60,7 +63,10 @@ class CatCard extends StatelessWidget {
                       ),
                       Text(
                         catInfo.origin,
-                        style: TextStyle(color: Colors.white, fontSize: 18),
+                        style: const TextStyle(
+                          color: Colors.white,
+                          fontSize: 18,
+                        ),
                       ),
                     ],
                   ),
