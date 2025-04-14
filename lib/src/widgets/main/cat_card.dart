@@ -1,13 +1,15 @@
 import "package:flutter/material.dart";
 import "package:cached_network_image/cached_network_image.dart";
 
-import "package:cat_tinder/src/models/cat.dart";
+import "package:cat_tinder/features/cat_swiper/data/models/cat_response_model.dart";
+
+import "package:cat_tinder/features/cat_swiper/domain/entities/cat_entity.dart";
 
 class CatCard extends StatelessWidget {
-  final Cat catInfo;
+  final CatEntity cat;
   final VoidCallback onTap;
 
-  const CatCard({super.key, required this.catInfo, required this.onTap});
+  const CatCard({super.key, required this.cat, required this.onTap});
 
   @override
   Widget build(BuildContext context) {
@@ -23,7 +25,7 @@ class CatCard extends StatelessWidget {
             GestureDetector(
               onTap: onTap,
               child: CachedNetworkImage(
-                imageUrl: catInfo.imageUrl,
+                imageUrl: cat.imageUrl ?? "",
                 placeholder:
                     (context, url) => const SizedBox(
                       height: 50,
@@ -54,7 +56,7 @@ class CatCard extends StatelessWidget {
                     crossAxisAlignment: CrossAxisAlignment.start,
                     children: [
                       Text(
-                        catInfo.breed,
+                        cat.breed ?? "",
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 24,
@@ -62,7 +64,7 @@ class CatCard extends StatelessWidget {
                         ),
                       ),
                       Text(
-                        catInfo.origin,
+                        cat.origin ?? "",
                         style: const TextStyle(
                           color: Colors.white,
                           fontSize: 18,

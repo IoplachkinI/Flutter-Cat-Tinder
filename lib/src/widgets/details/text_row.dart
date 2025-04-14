@@ -14,8 +14,6 @@ class DetailsTextRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        // Note: Styles for TextSpans must be explicitly defined.
-        // Child text spans will inherit styles from parent
         style: const TextStyle(fontSize: 18, color: Colors.white),
         children: <TextSpan>[
           TextSpan(
