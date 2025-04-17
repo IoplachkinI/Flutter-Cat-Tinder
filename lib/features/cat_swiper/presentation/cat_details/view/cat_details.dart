@@ -32,7 +32,7 @@ class DetailsScreen extends StatelessWidget {
                       width: 50,
                       child: Center(
                         child: CircularProgressIndicator(
-                          color: AppColors.secondary,
+                          color: AppColors.tertiary,
                         ),
                       ),
                     ),
