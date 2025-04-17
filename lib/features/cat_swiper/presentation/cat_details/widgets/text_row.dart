@@ -1,5 +1,7 @@
 import "package:flutter/material.dart";
 
+import 'package:cat_tinder/core/utils/values/colors.dart';
+
 class DetailsTextRow extends StatelessWidget {
   final String paramName;
   final String paramValue;
@@ -14,7 +16,7 @@ class DetailsTextRow extends StatelessWidget {
   Widget build(BuildContext context) {
     return RichText(
       text: TextSpan(
-        style: const TextStyle(fontSize: 18, color: Colors.white),
+        style: const TextStyle(fontSize: 18, color: AppColors.secondary),
         children: <TextSpan>[
           TextSpan(
             text: paramName,

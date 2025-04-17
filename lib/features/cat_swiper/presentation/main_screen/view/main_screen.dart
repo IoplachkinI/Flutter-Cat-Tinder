@@ -1,3 +1,4 @@
+import "package:cat_tinder/core/utils/values/colors.dart";
 import "package:cat_tinder/features/cat_swiper/domain/entities/cat_entity.dart";
 import "package:cat_tinder/features/cat_swiper/presentation/main_screen/main_screen_viewmodel.dart";
 import "package:cat_tinder/features/cat_swiper/presentation/liked_cats/liked_cats_viewmodel.dart";
@@ -91,8 +92,8 @@ class MainScreenState extends State<MainScreen> {
         }
         return Scaffold(
           appBar: AppBar(
-            backgroundColor: const Color.fromARGB(255, 30, 30, 30),
-            iconTheme: const IconThemeData(color: Colors.white),
+            backgroundColor: AppColors.primary,
+            iconTheme: const IconThemeData(color: AppColors.secondary),
             actions: [
               IconButton(
                 icon: const Icon(Icons.menu),

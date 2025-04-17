@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import "package:cat_tinder/core/utils/values/colors.dart";
 
 class LikeDislikeCount extends StatelessWidget {
   const LikeDislikeCount({
@@ -21,7 +22,7 @@ class LikeDislikeCount extends StatelessWidget {
           textAlign: TextAlign.center,
           style: const TextStyle(
             fontSize: 30,
-            color: Color.fromARGB(255, 30, 30, 30),
+            color: AppColors.primary,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -30,7 +31,7 @@ class LikeDislikeCount extends StatelessWidget {
           textAlign: TextAlign.center,
           style: const TextStyle(
             fontSize: 30,
-            color: Color.fromARGB(255, 30, 30, 30),
+            color: AppColors.primary,
             fontWeight: FontWeight.bold,
           ),
         ),

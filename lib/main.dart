@@ -3,8 +3,8 @@ import "package:cat_tinder/features/cat_swiper/presentation/liked_cats/liked_cat
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';
 
-import "features/cat_swiper/presentation/main_screen/main_screen_viewmodel.dart";
-import "features/cat_swiper/presentation/main_screen/view/main_screen.dart";
+import "package:cat_tinder/features/cat_swiper/presentation/main_screen/main_screen_viewmodel.dart";
+import "package:cat_tinder/features/cat_swiper/presentation/main_screen/view/main_screen.dart";
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();

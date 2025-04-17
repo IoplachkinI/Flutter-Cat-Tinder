@@ -2,6 +2,8 @@ import "package:cat_tinder/features/cat_swiper/domain/entities/cat_entity.dart";
 import "package:flutter/material.dart";
 import "package:cached_network_image/cached_network_image.dart";
 
+import 'package:cat_tinder/core/utils/values/colors.dart';
+
 import "package:cat_tinder/features/cat_swiper/presentation/cat_details/widgets/text_row.dart";
 
 class DetailsScreen extends StatelessWidget {
@@ -12,10 +14,10 @@ class DetailsScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: const Color.fromARGB(255, 30, 30, 30),
+      backgroundColor: AppColors.primary,
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 30, 30, 30),
-        iconTheme: const IconThemeData(color: Colors.white),
+        backgroundColor: AppColors.primary,
+        iconTheme: const IconThemeData(color: AppColors.secondary),
       ),
       body: Center(
         child: SingleChildScrollView(
@@ -29,7 +31,9 @@ class DetailsScreen extends StatelessWidget {
                       height: 50,
                       width: 50,
                       child: Center(
-                        child: CircularProgressIndicator(color: Colors.white54),
+                        child: CircularProgressIndicator(
+                          color: AppColors.secondary,
+                        ),
                       ),
                     ),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
@@ -46,13 +50,17 @@ class DetailsScreen extends StatelessWidget {
                   cat.breed ?? "",
                   textAlign: TextAlign.left,
                   style: const TextStyle(
-                    color: Colors.white,
+                    color: AppColors.secondary,
                     fontSize: 24,
                     fontWeight: FontWeight.bold,
                   ),
                 ),
               ),
-              const Divider(height: 1, thickness: 1, color: Colors.white),
+              const Divider(
+                height: 1,
+                thickness: 1,
+                color: AppColors.secondary,
+              ),
               Container(
                 padding: const EdgeInsets.symmetric(
                   vertical: 20,
@@ -64,7 +72,10 @@ class DetailsScreen extends StatelessWidget {
                   children: [
                     Text(
                       cat.description ?? "",
-                      style: const TextStyle(fontSize: 18, color: Colors.white),
+                      style: const TextStyle(
+                        fontSize: 18,
+                        color: AppColors.secondary,
+                      ),
                     ),
                     DetailsTextRow(
                       paramName: "Origin: ",

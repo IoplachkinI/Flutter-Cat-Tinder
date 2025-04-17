@@ -3,6 +3,7 @@ import 'package:cat_tinder/features/cat_swiper/domain/entities/cat_entity.dart';
 import 'package:cat_tinder/features/cat_swiper/presentation/liked_cats/liked_cats_viewmodel.dart';
 import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
+import 'package:cat_tinder/core/utils/values/colors.dart';
 
 import 'package:cat_tinder/features/cat_swiper/presentation/cat_details/view/cat_details.dart';
 import 'package:cat_tinder/features/cat_swiper/presentation/main_screen/main_screen_viewmodel.dart';
@@ -16,7 +17,7 @@ class CatListElement extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      color: const Color.fromARGB(220, 30, 30, 30),
+      color: AppColors.transparentPrimary,
       child: ListTile(
         onTap: () {
           Navigator.push(
@@ -34,14 +35,14 @@ class CatListElement extends StatelessWidget {
                     height: 25,
                     width: 25,
                     child: CircularProgressIndicator(
-                      color: Colors.white54,
+                      color: AppColors.tertiary,
                       strokeWidth: 3,
                     ),
                   ),
                 ),
             errorWidget:
                 (context, url, error) =>
-                    const Icon(Icons.error, color: Colors.white),
+                    const Icon(Icons.error, color: AppColors.secondary),
             width: 75,
             height: 75,
             fit: BoxFit.cover,
@@ -49,14 +50,14 @@ class CatListElement extends StatelessWidget {
         ),
         title: Text(
           cat.breed ?? "",
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: AppColors.secondary),
         ),
         subtitle: Text(
           "Liked on: ${cat.likeDate}",
-          style: const TextStyle(color: Colors.white),
+          style: const TextStyle(color: AppColors.secondary),
         ),
         trailing: IconButton(
-          icon: const Icon(Icons.delete, color: Colors.red),
+          icon: const Icon(Icons.delete, color: AppColors.accent),
           onPressed: () {
             Provider.of<MainScreenViewModel>(
               context,

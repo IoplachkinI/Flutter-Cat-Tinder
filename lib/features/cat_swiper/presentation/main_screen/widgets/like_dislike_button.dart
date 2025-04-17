@@ -1,3 +1,4 @@
+import "package:cat_tinder/core/utils/values/colors.dart";
 import "package:flutter/material.dart";
 
 class LikeDislikeButton extends StatelessWidget {
@@ -17,17 +18,17 @@ class LikeDislikeButton extends StatelessWidget {
       child: Container(
         height: 80,
         width: 80,
-        decoration: BoxDecoration(
+        decoration: const BoxDecoration(
           boxShadow: [
             BoxShadow(
-              color: Colors.grey.withValues(alpha: 0.7),
+              color: AppColors.shadow,
               spreadRadius: 5,
               blurRadius: 5,
-              offset: const Offset(0, 5),
+              offset: Offset(0, 5),
             ),
-            const BoxShadow(color: Color.fromARGB(255, 202, 202, 202)),
-            const BoxShadow(
-              color: Colors.white,
+            BoxShadow(color: AppColors.shadow),
+            BoxShadow(
+              color: AppColors.secondary,
               spreadRadius: -5.0,
               blurRadius: 5,
             ),

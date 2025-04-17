@@ -1,3 +1,4 @@
+import 'package:cat_tinder/core/utils/values/colors.dart';
 import 'package:flutter/material.dart';
 
 class LikeDislikeBar extends StatelessWidget {
@@ -20,8 +21,8 @@ class LikeDislikeBar extends StatelessWidget {
           (context, value, _) => LinearProgressIndicator(
             value: value,
             minHeight: 5,
-            color: const Color.fromARGB(255, 30, 30, 30),
-            backgroundColor: Colors.red,
+            color: AppColors.primary,
+            backgroundColor: AppColors.accent,
           ),
     );
   }

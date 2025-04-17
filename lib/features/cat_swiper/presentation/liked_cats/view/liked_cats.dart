@@ -5,6 +5,7 @@ import "package:flutter/material.dart";
 
 import "package:provider/provider.dart";
 
+import 'package:cat_tinder/core/utils/values/colors.dart';
 import "package:cat_tinder/features/cat_swiper/presentation/liked_cats/liked_cats_viewmodel.dart";
 
 class LikedCatsScreen extends StatefulWidget {
@@ -26,10 +27,10 @@ class LikedCatsScreenState extends State<LikedCatsScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: const Color.fromARGB(255, 30, 30, 30),
+        backgroundColor: AppColors.primary,
         elevation: 0,
         surfaceTintColor: Colors.transparent,
-        iconTheme: const IconThemeData(color: Colors.white),
+        iconTheme: const IconThemeData(color: AppColors.secondary),
       ),
       body: Container(
         decoration: const BoxDecoration(

@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import "package:cat_tinder/core/utils/values/colors.dart";
 
 class LoadingScreen extends StatelessWidget {
   const LoadingScreen({super.key});
@@ -6,6 +7,7 @@ class LoadingScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
+      backgroundColor: AppColors.secondary,
       body: Column(
         mainAxisAlignment: MainAxisAlignment.center,
         crossAxisAlignment: CrossAxisAlignment.center,
@@ -17,8 +19,8 @@ class LoadingScreen extends StatelessWidget {
             padding: EdgeInsets.symmetric(horizontal: 40),
             child: LinearProgressIndicator(
               minHeight: 6,
-              color: Color.fromARGB(255, 30, 30, 30),
-              backgroundColor: Colors.redAccent,
+              color: AppColors.primary,
+              backgroundColor: AppColors.accent,
             ),
           ),
           const SizedBox(height: 30),
@@ -26,7 +28,7 @@ class LoadingScreen extends StatelessWidget {
             "Loading cats...",
             style: TextStyle(
               fontSize: 18,
-              color: Color.fromARGB(255, 30, 30, 30),
+              color: AppColors.primary,
               fontWeight: FontWeight.w500,
             ),
           ),
