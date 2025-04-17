@@ -3,7 +3,7 @@ import "package:flutter/material.dart";
 import "package:cached_network_image/cached_network_image.dart";
 
 import "package:cat_tinder/features/cat_swiper/data/models/cat_response_model.dart";
-import "package:cat_tinder/src/widgets/details/text_row.dart";
+import "package:cat_tinder/features/cat_swiper/presentation/cat_details/widgets/text_row.dart";
 
 class DetailsScreen extends StatelessWidget {
   final CatEntity cat;
@@ -27,12 +27,12 @@ class DetailsScreen extends StatelessWidget {
                 imageUrl: cat.imageUrl ?? "",
                 placeholder:
                     (context, url) => const SizedBox(
-                  height: 50,
-                  width: 50,
-                  child: Center(
-                    child: CircularProgressIndicator(color: Colors.white54),
-                  ),
-                ),
+                      height: 50,
+                      width: 50,
+                      child: Center(
+                        child: CircularProgressIndicator(color: Colors.white54),
+                      ),
+                    ),
                 errorWidget: (context, url, error) => const Icon(Icons.error),
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.4,

@@ -34,7 +34,9 @@ class CatCard extends StatelessWidget {
                         child: CircularProgressIndicator(color: Colors.white54),
                       ),
                     ),
-                errorWidget: (context, url, error) => const Icon(Icons.error),
+                errorWidget:
+                    (context, url, error) =>
+                        const Icon(Icons.error, color: Colors.white),
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.5,
                 fit: BoxFit.cover,

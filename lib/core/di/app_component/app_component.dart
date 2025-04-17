@@ -9,4 +9,4 @@ final getIt = GetIt.instance;
   preferRelativeImports: true, // default
   asExtension: true, // default
 )
-void initAppComponentLocator() => getIt.init();
+void initAppComponentGetIt() => getIt.init();

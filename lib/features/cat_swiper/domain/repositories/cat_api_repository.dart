@@ -1,7 +1,7 @@
 import 'package:cat_tinder/features/cat_swiper/domain/entities/cat_entity.dart';
 
-abstract class CatRepository {
+abstract class CatApiRepository {
   CatEntity? getCat(int ind);
   Future<void> initCats();
-  void updateCat(int ind);
+  Future<void> updateCat(int ind);
 }

@@ -1,16 +1,14 @@
-import "package:cat_tinder/features/cat_swiper/presentation/cat_details/cat_details_viewmodel.dart";
 import "package:cat_tinder/core/di/app_component/app_component.dart";
-import "package:cat_tinder/features/cat_swiper/presentation/cat_swiper/cat_swiper_viewmodel.dart";
+import "package:cat_tinder/features/cat_swiper/presentation/liked_cats/liked_cats_viewmodel.dart";
 import "package:flutter/material.dart";
-import "package:cat_tinder/src/screens/main_screen.dart";
 import 'package:provider/provider.dart';
 
-import "core/di/app_component/app_component.dart";
-import "package:cat_tinder/features/cat_swiper/presentation/cat_swiper/view/cat_swiper.dart";
+import "features/cat_swiper/presentation/main_screen/main_screen_viewmodel.dart";
+import "features/cat_swiper/presentation/main_screen/view/main_screen.dart";
 
 void main() {
   WidgetsFlutterBinding.ensureInitialized();
-  initAppComponentLocator();
+  initAppComponentGetIt();
   runApp(const CatApp());
 }
 
@@ -21,11 +19,11 @@ class CatApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MultiProvider(
       providers: [
-        ChangeNotifierProvider<CatSwiperViewModel>(
-          create: (BuildContext context) => getIt<CatSwiperViewModel>(),
+        ChangeNotifierProvider<MainScreenViewModel>(
+          create: (BuildContext context) => getIt<MainScreenViewModel>(),
         ),
-        ChangeNotifierProvider<CatDetailsViewModel>(
-          create: (BuildContext context) => getIt<CatDetailsViewModel>(),
+        ChangeNotifierProvider<LikedCatsViewModel>(
+          create: (BuildContext context) => getIt<LikedCatsViewModel>(),
         ),
       ],
       child: const MaterialApp(
