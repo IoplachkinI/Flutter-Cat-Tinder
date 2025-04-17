@@ -6,12 +6,8 @@ import "package:flutter/material.dart";
 import "package:flutter_card_swiper/flutter_card_swiper.dart";
 import "package:intl/intl.dart";
 
-import "package:cat_tinder/features/cat_swiper/presentation/main_screen/widgets/cat_card/cat_card.dart";
 import "package:cat_tinder/features/cat_swiper/presentation/main_screen/widgets/like_dislike_button.dart";
-import "package:cat_tinder/core/utils/constants/app_constants.dart";
 import "package:provider/provider.dart";
-
-import "package:cat_tinder/features/cat_swiper/presentation/cat_details/view/cat_details.dart";
 
 import "package:cat_tinder/features/cat_swiper/presentation/liked_cats/view/liked_cats.dart";
 
@@ -50,7 +46,6 @@ class MainScreenState extends State<MainScreen> {
         await catSwiperViewModel.updateCat(ind);
       }
     } catch (_) {
-      print("Caught in card swiper");
       if (!mounted) {
         return;
       }
@@ -82,7 +77,6 @@ class MainScreenState extends State<MainScreen> {
     } else {
       catSwiperViewModel.incrementDislikes();
     }
-    print("Updating cat!");
     _updateCat(previousIndex);
     return true;
   }
@@ -207,7 +201,7 @@ class MainScreenState extends State<MainScreen> {
     _isShowingDialog = true;
     showDialog(
       context: context,
-      builder: (BuildContext context) => ErrorDialog(),
+      builder: (BuildContext context) => const ErrorDialog(),
     ).then((_) {
       _isShowingDialog = false;
       _updateCat(null);

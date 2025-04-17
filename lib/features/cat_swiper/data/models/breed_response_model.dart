@@ -1,4 +1,3 @@
-import 'package:cat_tinder/features/cat_swiper/data/models/cat_response_model.dart';
 import 'package:json_annotation/json_annotation.dart';
 
 part "breed_response_model.g.dart";
@@ -150,4 +149,6 @@ class BreedResponseModel {
 
   factory BreedResponseModel.fromJson(Map<String, dynamic> json) =>
       _$BreedResponseModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$BreedResponseModelToJson(this);
 }

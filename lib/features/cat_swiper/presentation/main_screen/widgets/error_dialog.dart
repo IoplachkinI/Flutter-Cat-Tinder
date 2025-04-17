@@ -1,7 +1,8 @@
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 
 class ErrorDialog extends StatelessWidget {
+  const ErrorDialog({super.key});
+
   @override
   Widget build(BuildContext context) {
     return AlertDialog(

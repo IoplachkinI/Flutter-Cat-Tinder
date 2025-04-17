@@ -1,16 +1,11 @@
-import "package:cached_network_image/cached_network_image.dart";
 import "package:cat_tinder/features/cat_swiper/presentation/liked_cats/widgets/cat_filter.dart";
 import "package:cat_tinder/features/cat_swiper/presentation/liked_cats/widgets/cat_list/cat_list.dart";
-import "package:cat_tinder/features/cat_swiper/presentation/liked_cats/widgets/cat_list/cat_list_element.dart";
 
 import "package:flutter/material.dart";
 
 import "package:provider/provider.dart";
 
 import "package:cat_tinder/features/cat_swiper/presentation/liked_cats/liked_cats_viewmodel.dart";
-
-import "package:cat_tinder/features/cat_swiper/presentation/cat_details/view/cat_details.dart";
-import "package:cat_tinder/features/cat_swiper/presentation/main_screen/main_screen_viewmodel.dart";
 
 class LikedCatsScreen extends StatefulWidget {
   const LikedCatsScreen({super.key});

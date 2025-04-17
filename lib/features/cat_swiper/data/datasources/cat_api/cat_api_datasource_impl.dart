@@ -1,6 +1,5 @@
 import 'dart:async';
 import 'dart:convert';
-import 'dart:io';
 
 import 'package:cat_tinder/features/cat_swiper/data/datasources/cat_api/cat_api_datasource.dart';
 import 'package:cat_tinder/features/cat_swiper/data/models/cat_response_model.dart';
@@ -30,9 +29,7 @@ class CatApiDatasourceImpl implements CatApiDatasource {
         default:
           throw Exception(response.reasonPhrase);
       }
-    } catch (e, s) {
-      print("Caught in datasource");
-      print("Stack trace: $s");
+    } catch (e) {
       rethrow;
     }
   }

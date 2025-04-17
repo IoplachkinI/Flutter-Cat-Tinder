@@ -43,4 +43,6 @@ class CatResponseModel {
 
   factory CatResponseModel.fromJson(Map<String, dynamic> json) =>
       _$CatResponseModelFromJson(json);
+
+  Map<String, dynamic> toJson() => _$CatResponseModelToJson(this);
 }

@@ -48,7 +48,6 @@ class MainScreenViewModel extends ChangeNotifier {
             .then((_) => {_catsToUpdate.remove(ind)});
       }
     } catch (e) {
-      print("Caught in CatSwiperViewmodel");
       rethrow;
     }
     notifyListeners();
@@ -61,7 +60,6 @@ class MainScreenViewModel extends ChangeNotifier {
         _catsToUpdate.remove(ind);
       });
     } catch (e) {
-      print("Caught in CatSwiperViewmodel");
       rethrow;
     }
     notifyListeners();

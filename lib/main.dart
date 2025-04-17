@@ -1,4 +1,4 @@
-import "package:cat_tinder/core/di/app_component/app_component.dart";
+import "package:cat_tinder/core/di/di.dart";
 import "package:cat_tinder/features/cat_swiper/presentation/liked_cats/liked_cats_viewmodel.dart";
 import "package:flutter/material.dart";
 import 'package:provider/provider.dart';

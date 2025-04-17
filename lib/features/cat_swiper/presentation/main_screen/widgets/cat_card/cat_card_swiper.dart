@@ -1,12 +1,11 @@
 import 'package:cat_tinder/features/cat_swiper/presentation/main_screen/main_screen_viewmodel.dart';
-import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
 import 'package:flutter_card_swiper/flutter_card_swiper.dart';
 import 'package:provider/provider.dart';
 
-import '../../../../../../core/utils/constants/app_constants.dart';
-import '../../../../domain/entities/cat_entity.dart';
-import '../../../cat_details/view/cat_details.dart';
+import 'package:cat_tinder/core/utils/constants/app_constants.dart';
+import 'package:cat_tinder/features/cat_swiper/domain/entities/cat_entity.dart';
+import 'package:cat_tinder/features/cat_swiper/presentation/cat_details/view/cat_details.dart';
 import 'cat_card.dart';
 
 class CatCardSwiper extends StatefulWidget {

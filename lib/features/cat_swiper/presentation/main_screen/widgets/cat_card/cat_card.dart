@@ -1,8 +1,6 @@
 import "package:flutter/material.dart";
 import "package:cached_network_image/cached_network_image.dart";
 
-import "package:cat_tinder/features/cat_swiper/data/models/cat_response_model.dart";
-
 import "package:cat_tinder/features/cat_swiper/domain/entities/cat_entity.dart";
 
 class CatCard extends StatelessWidget {

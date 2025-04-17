@@ -1,9 +1,9 @@
 import 'package:flutter/material.dart';
 
-import '../liked_cats_viewmodel.dart';
+import 'package:cat_tinder/features/cat_swiper/presentation/liked_cats/liked_cats_viewmodel.dart';
 
 class CatFilter extends StatelessWidget {
-  CatFilter({
+  const CatFilter({
     super.key,
     required this.viewModel,
     required this.selected,

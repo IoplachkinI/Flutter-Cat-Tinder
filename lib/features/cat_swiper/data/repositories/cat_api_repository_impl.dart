@@ -13,25 +13,18 @@ class CatRepositoryImpl implements CatApiRepository {
   final CatApiDatasource remoteDatasource;
   List<CatResponseModel?> cachedCats;
 
-  bool _loading = true;
-
   @override
   Future<void> updateCat(int ind) async {
-    print("CAT UPDATE CALLED!");
     cachedCats[ind] = null;
     try {
       cachedCats[ind] = await remoteDatasource.getCat();
-      print("Cat updated: ${cachedCats[ind]?.breeds?[0].name}");
-    } catch (e, s) {
-      print("UPDATE EXCEPTION CAUGHT!");
-      print("Stack trace: $s");
+    } catch (e) {
       rethrow;
     }
   }
 
   @override
   Future<void> initCats() async {
-    _loading = true;
     for (int i = 0; i < preloadCatsAmount; i++) {
       while (true) {
         try {
@@ -40,7 +33,6 @@ class CatRepositoryImpl implements CatApiRepository {
         } catch (_) {}
       }
     }
-    _loading = false;
   }
 
   @override
