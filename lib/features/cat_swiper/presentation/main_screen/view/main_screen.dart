@@ -16,7 +16,6 @@ import "package:cat_tinder/features/cat_swiper/presentation/liked_cats/view/like
 import "../widgets/cat_card/cat_card_swiper.dart";
 import "../widgets/like_dislike_count.dart";
 import "../widgets/loading_screen.dart";
-import "../widgets/connectivity_snackbar.dart";
 import "../widgets/error_dialog.dart";
 
 class MainScreen extends StatefulWidget {
@@ -49,7 +48,6 @@ class MainScreenState extends State<MainScreen>
   bool _initialLoading = true;
   bool _isShowingDialog = false;
   bool _wasOnline = true;
-  bool _showSnackBar = false;
 
   void _updateCat(int? ind) async {
     final catSwiperViewModel = Provider.of<MainScreenViewModel>(
@@ -102,23 +100,42 @@ class MainScreenState extends State<MainScreen>
   void _showConnectivitySnackbar(bool isOnline) {
     if (!mounted) return;
 
-    setState(() {
-      _showSnackBar = true;
-    });
+    final snackBar = SnackBar(
+      content: Row(
+        children: [
+          Icon(
+            isOnline ? Icons.wifi : Icons.wifi_off,
+            color: Colors.white,
+            size: 24,
+          ),
+          const SizedBox(width: 12),
+          Expanded(
+            child: Text(
+              isOnline
+                  ? "Back online! You can now swipe cats again."
+                  : "You're offline. You can still view your liked cats.",
+              style: const TextStyle(
+                color: Colors.white,
+                fontSize: 16,
+                fontWeight: FontWeight.w500,
+              ),
+            ),
+          ),
+        ],
+      ),
+      backgroundColor:
+          isOnline ? Colors.green.shade700 : Colors.orange.shade700,
+      behavior: SnackBarBehavior.floating,
+      margin: EdgeInsets.only(
+        bottom: MediaQuery.of(context).size.height * 0.1,
+        left: 16,
+        right: 16,
+      ),
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(8)),
+      duration: const Duration(seconds: 2),
+    );
 
-    _animationController.forward().then((_) {
-      Future.delayed(const Duration(seconds: 2), () {
-        if (mounted) {
-          _animationController.reverse().then((_) {
-            if (mounted) {
-              setState(() {
-                _showSnackBar = false;
-              });
-            }
-          });
-        }
-      });
-    });
+    ScaffoldMessenger.of(context).showSnackBar(snackBar);
   }
 
   void _handleOnlineStatusChange(bool isOnline) {
@@ -299,17 +316,6 @@ class MainScreenState extends State<MainScreen>
             );
           },
         ),
-        if (_showSnackBar)
-          ConnectivitySnackBar(
-            isOnline: _wasOnline,
-            onDismissed: () {
-              if (mounted) {
-                setState(() {
-                  _showSnackBar = false;
-                });
-              }
-            },
-          ),
       ],
     );
   }
