@@ -10,7 +10,7 @@ class AddLikedCat {
 
   AddLikedCat({required this.repository});
 
-  void call(CatEntity cat) {
-    return repository.addCat(cat);
+  Future<void> call(CatEntity cat) async {
+    return await repository.addCat(cat);
   }
 }

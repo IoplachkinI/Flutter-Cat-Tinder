@@ -10,7 +10,7 @@ class GetLikedCatsByBreed {
 
   GetLikedCatsByBreed({required this.repository});
 
-  List<CatEntity> call(String breed) {
-    return repository.getCatsByBreed(breed);
+  Future<List<CatEntity>> call(String breed) async {
+    return await repository.getCatsByBreed(breed);
   }
 }

@@ -16,11 +16,12 @@ class LikedCatsScreen extends StatefulWidget {
 }
 
 class LikedCatsScreenState extends State<LikedCatsScreen> {
-  final List<String> selectedBreeds = [];
-
   @override
   void initState() {
     super.initState();
+    WidgetsBinding.instance.addPostFrameCallback((_) {
+      context.read<LikedCatsViewModel>().loadCats();
+    });
   }
 
   @override
@@ -43,14 +44,12 @@ class LikedCatsScreenState extends State<LikedCatsScreen> {
         child: Center(
           child: Consumer<LikedCatsViewModel>(
             builder: (context, viewModel, child) {
-              final cats = viewModel.getCatsWithFilter();
-              final breeds =
-                  viewModel
-                      .getAllCats()
-                      .map((cat) => cat.breed ?? "")
-                      .toSet()
-                      .toList();
-              breeds.sort();
+              if (viewModel.isLoading) {
+                return const CircularProgressIndicator();
+              }
+
+              final cats = viewModel.cats;
+              final breeds = viewModel.availableBreeds;
               final selected = viewModel.getSelectedBreed();
 
               return Column(

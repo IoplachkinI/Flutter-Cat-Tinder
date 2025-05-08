@@ -15,6 +15,9 @@ class CatRepositoryImpl implements CatApiRepository {
 
   @override
   Future<void> updateCat(int ind) async {
+    if (ind >= cachedCats.length) {
+      return;
+    }
     cachedCats[ind] = null;
     try {
       cachedCats[ind] = await remoteDatasource.getCat();
@@ -37,9 +40,13 @@ class CatRepositoryImpl implements CatApiRepository {
 
   @override
   CatEntity? getCat(int ind) {
-    if (cachedCats.isEmpty) {
+    if (cachedCats.isEmpty || ind >= cachedCats.length) {
       return null;
     }
-    return cachedCats[ind]?.mapToEntity();
+    final cat = cachedCats[ind];
+    if (cat == null) {
+      return null;
+    }
+    return cat.mapToEntity();
   }
 }

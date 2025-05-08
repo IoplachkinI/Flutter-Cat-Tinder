@@ -8,7 +8,7 @@ class RemoveLikedCat {
 
   RemoveLikedCat({required this.repository});
 
-  void call(String uuid) {
-    return repository.removeCatByUuid(uuid);
+  Future<void> call(String uuid) async {
+    return await repository.removeCatByUuid(uuid);
   }
 }

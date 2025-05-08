@@ -10,7 +10,7 @@ class GetAllLikedCats {
 
   GetAllLikedCats({required this.repository});
 
-  List<CatEntity> call() {
-    return repository.getAllCats();
+  Future<List<CatEntity>> call() async {
+    return await repository.getAllCats();
   }
 }

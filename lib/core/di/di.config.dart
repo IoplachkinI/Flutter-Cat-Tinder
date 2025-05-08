@@ -46,6 +46,9 @@ import '../../features/cat_swiper/presentation/liked_cats/liked_cats_viewmodel.d
     as _i641;
 import '../../features/cat_swiper/presentation/main_screen/main_screen_viewmodel.dart'
     as _i110;
+import '../database/app_database.dart' as _i982;
+import '../services/connectivity_service.dart' as _i47;
+import '../services/stats_service.dart' as _i897;
 
 extension GetItInjectableX on _i174.GetIt {
   // initializes the registration of main-scope dependencies inside of GetIt
@@ -54,8 +57,11 @@ extension GetItInjectableX on _i174.GetIt {
     _i526.EnvironmentFilter? environmentFilter,
   }) {
     final gh = _i526.GetItHelper(this, environment, environmentFilter);
+    gh.singleton<_i47.ConnectivityService>(() => _i47.ConnectivityService());
+    gh.lazySingleton<_i982.AppDatabase>(() => _i982.AppDatabase());
+    gh.lazySingleton<_i897.StatsService>(() => _i897.StatsService());
     gh.lazySingleton<_i668.LikedCatsDatasource>(
-      () => _i385.LikedCatsDatasourceImpl(),
+      () => _i385.LikedCatsDatasourceImpl(gh<_i982.AppDatabase>()),
     );
     gh.factory<_i587.CatApiDatasource>(() => _i711.CatApiDatasourceImpl());
     gh.lazySingleton<_i933.LikedCatsRepository>(
@@ -82,6 +88,8 @@ extension GetItInjectableX on _i174.GetIt {
         getCatByInd: gh<_i808.GetCatFromApi>(),
         updateCatByInd: gh<_i566.UpdateCatFromApi>(),
         initCats: gh<_i602.InitCatsFromApi>(),
+        statsService: gh<_i897.StatsService>(),
+        connectivityService: gh<_i47.ConnectivityService>(),
       ),
     );
     gh.factory<_i729.AddLikedCat>(

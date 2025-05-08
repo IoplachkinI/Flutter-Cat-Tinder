@@ -46,6 +46,11 @@ class CatListElement extends StatelessWidget {
             width: 75,
             height: 75,
             fit: BoxFit.cover,
+            memCacheWidth: 150,
+            memCacheHeight: 150,
+            maxWidthDiskCache: 150,
+            maxHeightDiskCache: 150,
+            fadeInDuration: const Duration(milliseconds: 300),
           ),
         ),
         title: Text(

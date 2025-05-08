@@ -21,36 +21,61 @@ class LikedCatsViewModel extends ChangeNotifier {
   final RemoveLikedCat removeLikedCat;
 
   String _selectedBreed = "";
+  List<CatEntity> _cats = [];
+  List<CatEntity> _allCats = [];
+  bool _isLoading = false;
 
-  List<CatEntity> getCatsWithFilter() {
-    if (_selectedBreed == "") {
-      return getAllLikedCats();
-    }
-    return getLikedCatsByBreed(_selectedBreed);
+  List<CatEntity> get cats => _cats;
+  bool get isLoading => _isLoading;
+
+  List<String> get availableBreeds {
+    return _allCats
+        .map((cat) => cat.breed ?? "")
+        .where((breed) => breed.isNotEmpty)
+        .toSet()
+        .toList()
+      ..sort();
   }
 
-  List<CatEntity> getAllCats() {
-    return getAllLikedCats();
+  Future<void> loadCats() async {
+    _isLoading = true;
+    notifyListeners();
+
+    try {
+      _allCats = await getAllLikedCats();
+      if (_selectedBreed.isEmpty) {
+        _cats = _allCats;
+      } else {
+        _cats = _allCats.where((cat) => cat.breed == _selectedBreed).toList();
+      }
+    } finally {
+      _isLoading = false;
+      notifyListeners();
+    }
   }
 
   String getSelectedBreed() {
     return _selectedBreed;
   }
 
-  void applyBreedFilter(String breed) {
+  Future<void> applyBreedFilter(String breed) async {
     _selectedBreed = breed;
-    notifyListeners();
+    await loadCats();
   }
 
-  void addCat(CatEntity cat) {
-    addLikedCat(cat);
+  Future<void> addCat(CatEntity cat) async {
+    await addLikedCat(cat);
+    await loadCats();
   }
 
-  void removeCat(String uuid) {
-    removeLikedCat(uuid);
-    if (getLikedCatsByBreed(_selectedBreed).isEmpty) {
-      _selectedBreed = "";
+  Future<void> removeCat(String uuid) async {
+    await removeLikedCat(uuid);
+    if (_selectedBreed.isNotEmpty) {
+      final cats = await getLikedCatsByBreed(_selectedBreed);
+      if (cats.isEmpty) {
+        _selectedBreed = "";
+      }
     }
-    notifyListeners();
+    await loadCats();
   }
 }

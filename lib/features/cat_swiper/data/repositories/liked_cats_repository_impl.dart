@@ -11,22 +11,22 @@ class LikedCatsRepositoryImpl implements LikedCatsRepository {
   LikedCatsRepositoryImpl({required this.likedCatsDatasource});
 
   @override
-  void addCat(CatEntity cat) {
-    likedCatsDatasource.storeCat(cat);
+  Future<void> addCat(CatEntity cat) async {
+    await likedCatsDatasource.storeCat(cat);
   }
 
   @override
-  void removeCatByUuid(String uuid) {
-    likedCatsDatasource.removeCatByUuid(uuid);
+  Future<void> removeCatByUuid(String uuid) async {
+    await likedCatsDatasource.removeCatByUuid(uuid);
   }
 
   @override
-  List<CatEntity> getAllCats() {
-    return likedCatsDatasource.getAllCats();
+  Future<List<CatEntity>> getAllCats() async {
+    return await likedCatsDatasource.getAllCats();
   }
 
   @override
-  List<CatEntity> getCatsByBreed(String breed) {
-    return likedCatsDatasource.getCatsByBreed(breed);
+  Future<List<CatEntity>> getCatsByBreed(String breed) async {
+    return await likedCatsDatasource.getCatsByBreed(breed);
   }
 }

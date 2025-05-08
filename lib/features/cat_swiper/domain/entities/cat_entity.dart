@@ -1,6 +1,3 @@
-import 'package:intl/intl.dart';
-import 'package:uuid/uuid.dart';
-
 class CatEntity {
   String? imageUrl;
   String? breed;
@@ -8,8 +5,8 @@ class CatEntity {
   String? origin;
   String? lifespan;
   String? description;
-  String uuid;
-  String likeDate;
+  final String uuid;
+  final String likeDate;
 
   CatEntity({
     this.imageUrl,
@@ -18,6 +15,7 @@ class CatEntity {
     this.origin,
     this.lifespan,
     this.description,
-  }) : uuid = const Uuid().v4(),
-       likeDate = DateFormat.yMMMd().format(DateTime.utc(1980));
+    required this.uuid,
+    required this.likeDate,
+  });
 }

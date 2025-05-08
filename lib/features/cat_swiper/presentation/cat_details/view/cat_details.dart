@@ -40,6 +40,14 @@ class DetailsScreen extends StatelessWidget {
                 width: double.infinity,
                 height: MediaQuery.of(context).size.height * 0.4,
                 fit: BoxFit.cover,
+                memCacheWidth: (MediaQuery.of(context).size.width * 2).toInt(),
+                memCacheHeight:
+                    (MediaQuery.of(context).size.height * 0.4 * 2).toInt(),
+                maxWidthDiskCache:
+                    (MediaQuery.of(context).size.width * 2).toInt(),
+                maxHeightDiskCache:
+                    (MediaQuery.of(context).size.height * 0.4 * 2).toInt(),
+                fadeInDuration: const Duration(milliseconds: 300),
               ),
               Container(
                 padding: const EdgeInsets.symmetric(
